@@ -1,26 +1,43 @@
 # SeaMap
-Αρχικά, πρέπει να γίνει λήψη του zip και εξαγωγή όλων των αρχείων. Στη συνέχεια αντιγράφουμε την διαδρομή ως τον φάκελο Xartis και ανοίγουμε το τερματικό. Κάνουμε
-cd και επικόλληση το μονοπάτι. Μετά, τρέχουμε την εντολή python predict_api.py
+## Οδηγίες για την εκτέλεση της εφαρμογής 
 
-Για την ενεργοποίηση του Chatbot πρέπει να αντιγράψουμε την διαδρομή ως τον φάκελο Chatbot και να την αντιγράψουμε. Ανοίγουμε καινούριο τερματικό και κάνουμε cd το
-συγκεκριμένο path. Τέλος, τρέχουμε την εντολή python Chatbot.py
-Σε περίπτωση που δεν δουλέψει κλείνουμε το προηγούμενο τερματικό. Ξανααντιγράφουμε την διαδρομή ως τον φάκελο Chatbot. Ανοίγουμε καινούριο τερματικό και κάνουμε cd το
-συγκεκριμένο path. Ακόμη, τρέχουμε την εντολή .venv\Scripts\activate και στη συνέχεια την εντολή python Chatbot.py
+### Λήψη του κώδικα
+```shell
+git clone https://github.com/Koumpos/SeaMap.git
+```
 
-Για να εμφανιστεί ο χάρτης πρέπει να αντιγράψουμε την διαδρομή ως τον φάκελο Xartis. Ανοίγουμε τρίτο τερματικό και ξανά κάνουμε cd την διαδρομή. 
-τρέχουμε την εντολή python -m http.server
+### Προετοιμασία περιβάλλοντος εκτέλεσης
 
-Για την σωστή εμφάνιση του χάρτη πρέπει σε καινούριο browser να τρέξουμε http://localhost:8000/map.html
-Προσοχή!!!! Δεν τρέχουμε το map.html από το visual studio code ή οποιαδήποτε άλλη εφαρμογή
+```shell
+pip install virtualenv
+virtualenv .venv
+./.venv/Scripts/activate
+python -m pip install -r requirements.txt
+```
 
- 
-Μπορεί να χρειστεί η εγκατάσταση ορισμένων βιβλιοθηκών σε περίπτωση εμφάνισης σφάλματος κατά το τρέξιμο της εφαρμογής. Κυρίως επηρεάζουν την χρήση του Chatbot και 
-της πρόβλεψης.
+### Εκτέλεση
+Σε χωριστά τερματικά εκτελέστε τα παρακάτω
 
-Αυτές είναι:
-    pip install flask
-    pip install flask-cors
-    pip install pandas
-    pip install numpy
-    pip install scikit-learn
-    pip install joblib
+#### 1. Prediction API:
+```shell
+./.venv/Scripts/activate
+cd prediction
+python predict_api.py
+```
+
+#### 2. Chatbot:
+```shell
+./.venv/Scripts/activate
+cd chatbot
+python Chatbot.py
+```
+
+
+#### 3. Ιστοσελίδα με χάρτη:
+```shell
+./.venv/Scripts/activate
+cd web-client
+python -m http.server
+```
+Επισκεφθείτε το http://localhost:8000
+
